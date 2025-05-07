@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funzioni</title>
+    <style>
+        .form-group{
+            margin:5px;
+        }
+        input{
+            border:1px solid #c0c0c0;
+            border-radius:5px;
+        }
+    </style>
+    <script>
+  function calculate(f){
+   
+   const val1 = +f.number1.value;
+   const val2 = +f.number2.value;
+   if(Number.isNaN(val1)){
+       alert( "value 1 is not a number");
+       f.number1.value = '';
+       return false;
+   }
+    if(Number.isNaN(val2)){
+       alert( "value 2 is not a number");
+       f.number2.value = '';
+       return false;
+   }
+   document.getElementById('result').innerHTML= "<h2>" + average(val1,val2) + "</h2>";
+   return false;
+}
+
+function average(number1, number2 ){
+   
+  const result = (number1 + number2)/2;
+ 
+   return result;
+}
+
+const result = average(2,4);
+ console.log(result);
+    </script>
+</head>
+<body>
+    <h1>Calculate average</h1>
+    <form onsubmit="return calculate(this)">
+    <div class="form-group">
+    <label for="number1">number 1</label>
+    <input name="number1" id="number1">
+    </div>
+     <div class="form-group">
+    <label for="number2">number 2</label>
+    <input name="number2" id="number2">
+    </div>
+    <button> CALCULATE</button>
+    <div id="result"></div>
+    </form>
+</body>
+</html>
