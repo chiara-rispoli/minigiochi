@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Boolean if else</title>
+</head>
+<body>
+
+    <h1>Quanti anni hai?</h1>
+    <form>
+    <input name="età" id="età" type="number" min="1" max="130"> 
+        <br>
+    <button id="invia">Invia</button>
+    </form>
+    
+    <script>
+        document.getElementById('invia').onclick = function(){
+            
+            
+     const età = document.getElementById('età').value;
+            alert(età);
+if (età < 6) {
+    alert ('sei alle elementari')
+} else if (età>=6 && età < 12){
+    alert ('sei alle medie')
+} else if (età>=12 && età < 10){
+    alert ('sei alle superiori')
+} else {
+    alert ('hai finito la scuola')
+}
+            
+        }
+    
+    </script>
+</body>
+</html>
