@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>jQuery clic event</title>
+        
+<style>
+body {
+    margin: 30px auto;
+    text-align: center;
+}
+#circle {
+    width: 250px;
+    height: 250px;
+
+    background-color: green;
+    margin: 10px auto;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    margin: 10px;
+}
+.rounded {
+    border-radius: 50%;
+}
+button {
+    width: 150px;
+    background-color: lightcoral;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-top: 50px;
+}
+</style>
+     </head>
+
+    <body>
+
+        <div id="circle" class="rounded"></div>
+
+
+
+        <div id="button">
+            <button id="hide">Hide</button> 
+            <button id="show">show</button>
+            <button id="toggle">Toggle</button>
+            <button id="fadeIn">Fadein</button>
+            <button id="fadeOut">Fadeout</button>
+            <button id="animate">Animate</button>
+        </div>
+
+             <script src="jquery-3.6.3.js"></script>
+             <script>
+
+             $( () => {
+                    const duration = 800;
+
+                    $('button').on('click', (evt) => {
+                    
+                        const id = evt.target.id;
+                        const circle = $('#circle');
+                        switch (id) {
+                            case 'hide':
+                            circle.hide(duration);
+                            break;
+                        case 'show':
+                            circle.show(duration);
+                            break;
+                        case 'toggle': 
+                             circle.toggle(duration);
+                            break;
+                        case 'fadeIn': 
+                            circle.fadeIn(duration);
+                            break;
+                        case 'fadeOut':
+                            circle.fadeOut(duration);
+                            break;
+                        case 'animate': 
+                            circle.animate({width: '500px'}, duration);
+                            break;
+
+                            default: 
+                            break;
+                         }
+                });
+
+                   /* $('#hide').on('click', () => {
+                
+                      $('#circle').hide(duration)
+                    })
+
+
+
+                     $('#show').on('click', () => {
+                       $('#circle').show(duration)
+                    })
+
+
+
+                    $('#toggle').on('click', () => {
+                        $('#circle').toggle(duration)
+                    })
+
+
+
+                    $('#fadeIn').on('click', () => {
+                        $('#circle').fadeIn(duration)
+                    })
+
+
+
+                    $('#fadeOut').on('click', () => {
+                         $('#circle').fadeOut(duration)
+                    })
+
+
+
+                    $('#animate').on('click', () => {
+                         $('#circle').animate( {width:'500px'}, duration)
+                    }); */
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            }); 
+
+
+
+
+
+             </script>
+    </body>
+
+</html>
