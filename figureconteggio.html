@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure e conteggio del tempo</title>
+   <style>
+body {
+    font-family: 'Dancing Script', cursive;
+    background-color: beige;
+    width: 800px;
+    margin: 0px auto;
+}
+
+   #cerchio {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    display: none;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    border: 2px solid black;
+   }
+
+.bold {
+    font-weight: 900;
+}
+
+
+   </style>
+
+
+</head>
+<body>
+    <h1>Test Your Reactions!</h1>
+    <p>Click on the boxes and circles as quickly as you can!</p>
+    <p class="bold">Your Time: <span id="timeTaken"></span>0</p>
+
+
+
+
+<div id="cerchio"></div>
+
+
+<script>
+    const cerchio = document.getElementById('cerchio');
+
+    let startTime = Date.now();
+    const minWidth = 20;
+    const maxWidth = 300;
+
+
+    const span= document.getElementById('timeTaken');
+
+    let intId = null;
+
+    function randColor(){
+        const numbers = '123456789ABCDEF'.split('')   ;
+        let result = '#';
+        for (let i =0; i<6; i++) {
+            result += numbers[Math.floor(Math.random()*16)];
+        
+        }
+        return result;
+    }
+    randColor()
+
+    function elapsedTime(t1, t2){
+
+        t2 = t2 || Date.now();
+        const t =Number.parseFloat((t2-t1)/1000);
+        return t.toFixed(2).toLocaleString();
+    }
+   cerchio.addEventListener('click', cerchioClicked);
+   makeCerchioAppear2();
+
+   function makeCerchioAppear1(){
+        if(intId){
+            clearInterval(intId);
+        }
+        
+            intId = setInterval(()=> {
+
+            cerchio.style.display='block';
+            }, Math.random()*2000);
+   }
+
+   function makeCerchioAppear2(){
+        if(intId){
+            clearTimeout(intId);
+        }
+        
+            intId = setTimeout(()=> {
+            let w = Math.random()*maxWidth ;
+            if(w<minWidth){
+                w = 10;
+            }
+            if(Math.random()  > .5){
+                cerchio.style.borderRadius = '50%';
+            } else {
+                cerchio.style.borderRadius = 0;
+            }
+            cerchio.style.display='block';
+            cerchio.style.top = Math.random()*400 + 'px';
+            cerchio.style.left = Math.random()*400 + 'px';
+            cerchio.style.height = w + 'px';
+            cerchio.style.width= w + 'px';
+            cerchio.style.backgroundColor = randColor();
+
+            }, Math.random()*2000);
+   }
+
+
+   function cerchioClicked(){
+    cerchio.style.display= 'none';
+
+    span.innerHTML = elapsedTime(startTime);
+    startTime = Date.now();
+
+    makeCerchioAppear2();
+   }
+
+
+   </script>
+
+
+
+</body>
+</html>
