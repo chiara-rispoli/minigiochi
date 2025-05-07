@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerchi che scompaiono</title>
+<style type="text/css">
+
+#red {
+
+background-color: red;
+border-radius: 100px;
+}
+
+
+#blue {
+
+    background-color: blue;
+border-radius: 100px;
+}
+
+#green {
+
+background-color: green;
+border-radius: 100px;
+}
+
+.square {
+
+width: 200px;
+height: 200px;
+margin: 40px;
+float: left;
+}
+
+</style>
+
+<script>
+            //oppure invece di ripeterlo più volte 
+            //si possono usare le variabili var, let, cont
+            //contst red = document.getElementById('red');
+            //if(red){
+            //red.onclick = function(){
+            //red.style.display ="none"; }}
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.getElementById('red').onclick = function() {
+
+          document.getElementById('red').style.display ="none";
+        }
+    });
+
+    
+    document.addEventListener('DOMContentLoaded', function () {
+            
+        document.getElementById('blue').onclick = function() {
+
+          document.getElementById('blue').style.display ="none";
+        }
+    });
+  
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.getElementById('green').onclick = function() {
+
+          document.getElementById('green').style.display ="none";
+        }
+    });
+  
+</script>
+
+</head>
+  <body>
+    
+    <div id="cerchio">
+
+     <div id="red" class="square"></div>    
+
+     <div id="blue" class="square"></div>
+
+     <div id="green" class="square"></div>
+
+    </div>
+     
+    
+        
+
+  </body>
+</html>
